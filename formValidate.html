@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form validation</title>
+    <script type="text/javascript">
+        function validate() {
+            var fullName = document.getElementById('full-name').value;
+            var address = document.getElementById('address').value;
+
+            if (fullName == '') {
+                alert('Name field should not be empty.');
+                return false;
+            }
+            if (address == '') {
+                alert('Address field should not be empty.');
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form id="general-form" onsubmit="validate()">
+        <table>
+            <tr>
+                <td><label for="name">Full Name</label></td>
+                <td><input type="text" id="full-name" name="full_name" /></td>
+            </tr>
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td><input type="text" id="address"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" /></td>
+            </tr>
+        </table>
+
+    </form>
+</body>
+
+</html>

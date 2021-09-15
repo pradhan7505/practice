@@ -1,0 +1,31 @@
+table{
+    font-size: large;
+}
+fieldset{
+    width: 40%;
+    background-color: whitesmoke;
+    margin: auto;
+    border-radius: 8%;
+
+}
+legend{
+    font-weight: bolder;
+    font-size: x-large;
+}
+label{
+    font-weight: 500;
+}
+button{
+    background-color: grey;
+    border-radius: 20%;
+    height: 40px;
+    width: 100px;
+    color: white;
+    margin: 0px 0px 0px 500px;
+    /* position: fixed; */
+    left: 100px;
+}
+input{
+    padding: 10px 10px;
+    font-size: medium;
+}

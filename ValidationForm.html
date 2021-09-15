@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Creating form using JS validation</title>
+    <link rel="stylesheet" href="ValidationFormstyle.css">
+    <script type="text/javascript">
+        function validateForm() {
+            var firstName = document.getElementById('first-name').value;
+            var lastName = document.getElementById('last-name').value;
+            var email = document.getElementById('email').value;
+            var dateOfBirth = document.getElementById('dob').value;
+            var address = document.getElementById('address').value;
+            var gender = document.getElementById('gender').value;
+            var country = document.getElementById('country').value;
+            var fatherName = document.getElementById('father-name').value;
+            var fatherOccupation = document.getElementById('father-occupation').value;
+            var motherName = document.getElementById('mother-name').value;
+            var motherOccupation = document.getElementById('mother-occupation').value;
+            var dle = document.getElementById('DLE').value;
+            var see = document.getElementById('SEE').value;
+
+
+            if (firstName == '') {
+                alert('First name cannot be empty.');
+                return false;
+            }
+            if (lastName == '') {
+                alert('Last name cannot be empty.');
+                return false;
+            }
+
+            if (dateOfBirth == '') {
+                alert('Date of birth cannot be empty.');
+                return false;
+            }
+            if (address == '') {
+                alert('Address cannot be empty.');
+                return false;
+            }
+            if (gender == '') {
+                alert('Gender canot be empty.');
+                return false;
+            }
+
+            if (email == '') {
+                alert('Email field cannot be empty.');
+                return false;
+            } else {
+                //This is the regular expression for the valid email address
+                const regularExpression = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                /*
+                    regularExpression.test(String(email).toLowerCase())
+                    The .test method is used to validate the string if it matches the given regular expression and returns boolean value.
+                    If it dosen't match the regular expression, it returns false otherwise true.
+                */
+                if (!regularExpression.test(String(email).toLowerCase())) {
+                    alert('Invalid email format. Please use valid email format.');
+                    return false;
+                }
+            }
+            if (fatherName == '') {
+                alert('Father name cannot be empty.');
+                return false;
+
+            }
+            if (fatherOccupation == '') {
+                alert('Father occupation cannot be empty.');
+                return false;
+
+            }
+            if (motherName == '') {
+                alert('Mother name cannot be empty.');
+                return false;
+
+            }
+            if (motherOccupation == '') {
+                alert('Mother occupation cannot be empty.');
+                return false;
+
+            }
+
+
+            if (country == '') {
+                alert('Please select a country');
+                return false;
+            }
+
+            if (fatherName == '') {
+                alert("Father's name cannot be empty.");
+                return false;
+            }
+            if (dle < 60) {
+                alert('You are not eligible to study BCA.');
+                return false;
+            }
+            if (see < 50) {
+                alert('You are not eligible to study BCA.');
+                return false;
+            }
+
+            document.getElementById('personal-information-form').submit();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <form id="personal-information-form" onsubmit="event.preventDefault(); validateForm();"
+            action="http://localhost/BCA-2076/form/user-information.php" method="POST">
+            <fieldset>
+                <table>
+                    <legend>Personal Information</legend>
+                    <tr>
+                        <td><label for="first-name"> First Name</label></td>
+                        <td><input type="text" placeholder="Enter your first name" id="=first-name" name="first_name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="middle-name"> Middle Name</label></td>
+                        <td><input type="text" placeholder="Enter your middle name" id="middle-name" name="middle_name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="last-name">Last Name</label></td>
+                        <td><input type="text" placeholder="Enter your last name" id="last-name" name="last_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="date-of-birth">D.O.B</label></td>
+                        <td><input type="date" placeholder="Enter your D.O.B" id="dob" name="dob"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address</label></td>
+                        <td><input type="text" placeholder="Enter your address" id="address" name="address"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="gendr">Gender</label></td>
+                        <td>Male<input type="radio" value="male" name="gender" id="male">
+                            Female<input type="radio" value="female" name="gender" checked id="female">
+                            Others<input type="radio" value="others" name="gender" id="others"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">E-mail</label></td>
+                        <td><input type="text" placeholder="Enter your email" id="email" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="country">Country</label></td>
+                        <td>
+                            <select name="country" id="country" id="country" name="country">
+                                <option value="">Nepal</option>
+                                <option value="">China</option>
+                                <option value="">Usa</option>
+                                <option value="">Japan</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Parent's Information</legend>
+                <table>
+                    <tr>
+                        <td><label for="father-name">Father's Name</label></td>
+                        <td><input type="text" placeholder="Enter your father's name" id="father-name"
+                                name="father_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="father-occupation">Father's Occupation</label></td>
+                        <td><input type="text" placeholder="Enter your father's occuptaion" id="father-occupation"
+                                name="father_occupation"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mother-name">Mother's Name</label></td>
+                        <td><input type="text" placeholder="Enter your mother's name" id="mother-name"
+                                name="mother_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="mother-occupation">Mother's Occupation</label></td>
+                        <td><input type="text" placeholder="Enter your mother's occupation" id="mother-occupation"
+                                name="mother_occupation"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Grandfather-name">Grand father's Name</label></td>
+                        <td><input type="text" placeholder="Enter your Grand father's name" id="grandfather-name"
+                                name="grandfather_name"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <fieldset>
+                <legend>Academic Qualifications</legend>
+                <table>
+                    <tr>
+                        <td><label for="DLE">D.L.E</label></td>
+                        <td><input type="text" placeholder="Enter your percentage" id="DLE" name="DLE"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="SEE">S.E.E</label></td>
+                        <td><input type="text" placeholder="Enter your percentage" id="SEE" name="SEE"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="SLC">S.L.C</label></td>
+                        <td><input type="text" placeholder="Enter your percentage" id="SLC" name="SLC"></td>
+                    </tr>
+
+                </table>
+            </fieldset>
+            <table>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</body>
+
+</html>
